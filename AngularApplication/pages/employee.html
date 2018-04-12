@@ -1,0 +1,38 @@
+﻿<div class="jumbotron" style="height:600px;padding-top:10px">
+	<div>
+		<i class="fa fa-arrow-left" back style="cursor:pointer"></i>
+	</div>
+	
+
+	<fieldset>
+		<legend>Profile av {{employee.ForNavn}} {{employee.EtterNavn}}</legend>
+		<div class="row">
+			<div class="col-md-offset-1 col-md-4">Fødselsnummer: {{employee.FodselsNummer}}</div>
+		</div>
+		<div class="row">
+			<div class="col-md-offset-1 col-md-4">ForNavn: {{employee.ForNavn}}</div>
+		</div>
+		<div class="row">
+			<div class="col-md-offset-1 col-md-4">MellomNavn: {{employee.MellomNavn}}</div>
+		</div>
+		<div class="row">
+			<div class="col-md-offset-1 col-md-4">EtterNavn: {{employee.EtterNavn}}</div>
+		</div>
+		<div class="row">
+			<div class="col-md-offset-1 col-md-4">FødselsDato: {{employee.FodselsDato}}</div>
+		</div>
+
+		<div class="row">
+			<h3 id="address-title"><u>Adresse</u></h3>
+			<div class="col-md-offset-1 col-md-8">
+				<ul>
+					<li ng-repeat="adr in employee.Adresse" style="list-style:none">						
+						<u>Adresse {{adr.Id + 1}}</u><br />
+						<span><label>GateNavn:</label> {{adr.GateNavn}}  <label>GateNummer:</label> {{adr.GateNummer}}  <label>PostNummer:</label> {{adr.PostNummer}} <label>PostSted:</label> {{adr.PostSted}}</span>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</fieldset>
+
+</div>

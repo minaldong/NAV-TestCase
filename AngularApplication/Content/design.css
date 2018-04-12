@@ -1,0 +1,93 @@
+﻿body{
+	background-color:#eee;
+}
+
+.jumbotron{
+	background-color:#f8f8f8;
+}
+
+#main{
+	padding-left:200px;
+	padding-right:200px;
+}
+
+p,li{
+	font-size:15px;
+	text-align:left;
+}
+
+h4{
+	padding-top:10px;
+	text-align:left;
+}
+
+.article-body{
+	padding-left:30px;
+}
+
+.employee-content{
+	height:490px;
+	padding-top:20px;
+}
+
+#address-title{
+	padding-left:90px;
+}
+
+.text-fit{
+	width:130px;
+}
+
+#logo{
+	padding-left:700px;
+	padding-bottom:10px
+}
+
+@media screen and (max-width: 640px) {
+	.jumbotron{
+		width:200px;
+	}
+}
+
+
+/*Fieldset*/
+fieldset{
+	border: 1px solid #e3e3e3;
+    border-radius: 5px;
+	min-width: 0;
+    padding: 0;
+    margin: 0;
+	font-size:16px;
+}
+fieldset legend{
+	color: #1e4164;
+    padding: 0;
+    margin-left: 10px;
+    width: inherit;
+    border-bottom: none;
+	font-size: 16px;
+	font-weight: 600;
+    border-color: #eee;
+    margin-bottom: 0;
+	display: block;
+	line-height: inherit;
+}
+
+/*Navbar*/
+.navbar-default, #footer{
+	background-color:#333;
+}
+
+.navbar-default .navbar-brand, #footer {
+    color: #eee;
+}
+.navbar-default .navbar-nav>li>a {
+    color: #eee;
+}
+.navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-nav>li>a:focus {
+    color: #eed3d7;
+    background-color: transparent;
+}
+
+
+

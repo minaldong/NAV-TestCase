@@ -1,0 +1,49 @@
+.menu{
+	display:inline-block;	
+	margin:52px auto 20px;	
+	box-shadow:0 1px 1px #ccc;
+	border-radius:10px;
+	position:absolute;
+	height:57px;
+	width:480px;
+	padding:0 10px 10px 10px;
+}
+
+
+.navbar-nav{
+  float:left;
+  margin:0px
+}
+
+
+.navbar-nav > li > a:hover,.navbar-nav > li > a:focus{
+	background-color: #797979;
+	color:white;
+}
+
+.nav .open > a{
+	background-color: #797979;
+	color:white;
+}
+
+.nav .open > a:hover, .nav .open > a:focus{
+	background-color: #797979;
+	color:white;
+}
+
+.navbar-nav > li >a{
+	font-size:22px;
+	color:black;
+}
+
+
+.active{	
+	background-color: #797979;
+	color:white;
+}
+
+.navbar-nav #nav >.active >a{
+	color:white;
+	
+}
+

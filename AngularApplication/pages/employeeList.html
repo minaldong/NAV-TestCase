@@ -1,0 +1,29 @@
+﻿<div class="jumbotron employee-content">
+	<div class="row">
+		<div class="col-md-4">
+			<a href="#registerandupdate"><i class="fa fa-user">New Employee</i></a>
+		</div>
+		<div class="col-md-offset-4 col-md-4">
+			<input type='text' class="form-control" ng-model='searchText' placeholder="Søk Fødselsnummer " style="font-size:medium" />
+		</div>
+		<br />
+			
+	</div>
+	<div class="row">
+		<div class="col-md-6">
+			<fieldset>
+				<legend>List of Employees</legend>
+				<div class="col-md-6">
+					<ul style="list-style:none">
+						<li ng-repeat='person in employeesList | filter:searchText'>
+							<span>
+								<a href="#employee?id={{person.Id}}">{{person.ForNavn}} {{person.EtterNavn}}</a>
+								<a href="#registerandupdate?id={{person.Id}}"><i class="fa fa-edit"></i></a>
+							</span>
+						</li>
+					</ul>
+				</div>
+			</fieldset>
+		</div>				
+	</div>
+</div>

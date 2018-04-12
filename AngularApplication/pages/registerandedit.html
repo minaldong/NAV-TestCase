@@ -1,0 +1,118 @@
+﻿<div class="jumbotron">
+	<div>
+		<i class="fa fa-arrow-left" back style="cursor:pointer"></i>
+	</div>
+	
+	<fieldset>
+		<legend>Register New Employee</legend>
+		<br />
+		<div class="row">
+			<div class="col-md-offset-1 col-md-11">
+				<form novalidate name="RegisterOrSaveForm">
+					<div class="row">
+						<label class="control-label col-md-2 text-fit">Fødselsnummer: </label>
+						<div class="col-md-3">
+							<input type="text" class="form-control" name="FodselsNummer" placeholder="Fødselesnummer" ng-model="editing.FodselsNummer" autofocus minlength="11" maxlength="11" ng-pattern="/^[0-9]*$/" required />
+							<span class="label label-danger" ng-show="RegisterOrSaveForm.FodselsNummer.$dirty && RegisterOrSaveForm.FodselsNummer.$invalid">
+								<span ng-show="RegisterOrSaveForm.FodselsNummer.$error.required">Fodselsnummer is required.</span>
+								<span ng-show="RegisterOrSaveForm.FodselsNummer.$error.pattern">Only digits</span>
+							</span>
+						</div>
+					</div>
+					<div class="row">
+						<label class="control-label col-md-2 text-fit">Fornavn: </label>
+						<div class="col-md-3">
+							<input type="text" class="form-control" name="ForNavn" placeholder="Fornavn" ng-model="editing.ForNavn" ng-pattern="/^[a-zA-Z]*$/" required />
+							<span class="label label-danger" ng-show="RegisterOrSaveForm.ForNavn.$dirty && RegisterOrSaveForm.ForNavn.$invalid">
+								<span ng-show="RegisterOrSaveForm.ForNavn.$error.required">Fornavn is required.</span>
+								<span ng-show="RegisterOrSaveForm.ForNavn.$error.pattern">Only letters without special characters and also space.</span>
+							</span>
+						</div>
+					</div>
+					<div class="row">
+						<label class="control-label col-md-2 text-fit">Mellomnvan: </label>
+						<div class="col-md-3">
+							<input type="text" class="form-control" name="MellomNavn" placeholder="Mellomnavn" ng-model="editing.MellomNavn" ng-pattern="/^[a-zA-Z]*$/" required />
+							<span class="label label-danger" ng-show="RegisterOrSaveForm.MellomNavn.$dirty && RegisterOrSaveForm.MellomNavn.$invalid">
+								<span ng-show="RegisterOrSaveForm.MellomNavn.$error.required">Mellomnvan is required.</span>
+								<span ng-show="RegisterOrSaveForm.MellomNavn.$error.pattern">Only letters without special characters and also space.</span>
+							</span>
+						</div>
+					</div>
+					<div class="row">
+						<label class="control-label col-md-2 text-fit">Etternavn: </label>
+						<div class="col-md-3">
+							<input type="text" class="form-control" name="EtterNavn" placeholder="Etternavn" ng-model="editing.EtterNavn" ng-pattern="/^[a-zA-Z]*$/" required />
+							<span class="label label-danger" ng-show="RegisterOrSaveForm.EtterNavn.$dirty && RegisterOrSaveForm.EtterNavn.$invalid">
+								<span ng-show="RegisterOrSaveForm.EtterNavn.$error.required">Etternavn is required.</span>
+								<span ng-show="RegisterOrSaveForm.EtterNavn.$error.pattern">Only letters without special characters and also space.</span>
+							</span>
+						</div>
+					</div>
+					<div class="row">
+						<label class="control-label col-md-2 text-fit">Fødselsdato: </label>
+						<div class="col-md-3">
+							<input type="text" class="form-control" name="FodselsDato" placeholder="Fødselsdato" ng-model="editing.FodselsDato" ng-pattern="/^(0[1-9]|1\d|2\d|3[01])\.(0[1-9]|1[0-2])\.(19|20)\d{2}$/" required />
+							<span class="label label-danger" ng-show="RegisterOrSaveForm.FodselsDato.$dirty && RegisterOrSaveForm.FodselsDato.$invalid">
+								<span ng-show="RegisterOrSaveForm.FodselsDato.$error.required">FodselsDato is required.</span>
+								<span ng-show="RegisterOrSaveForm.FodselsDato.$error.pattern">The format should be DD.MM.YYYY</span>
+							</span>
+						</div>
+					</div>
+					<div ng-repeat="adr in editing.Adresse track by $index">
+						<label class="control-label">Adresse {{adr.Id + 1}}</label>
+						<div class="row">
+							<label class="control-label col-md-1">Gatenavn: </label>
+							<div class="col-md-2">
+								<input type="text" class="form-control" name="GateNavn" placeholder="Gatenavn" ng-model="adr.GateNavn" required />
+								<span class="label label-danger" ng-show="RegisterOrSaveForm.GateNavn.$dirty && RegisterOrSaveForm.GateNavn.$invalid">
+									<span ng-show="RegisterOrSaveForm.GateNavn.$error.required">GateNavn is required.</span>
+								</span>
+							</div>
+							<label class="control-label col-md-1">GatenNr: </label>
+							<div class="col-md-1">
+								<input type="text" class="form-control" name="GateNummer" placeholder="Gatenummer" ng-model="adr.GateNummer" required />
+								<span class="label label-danger" ng-show="RegisterOrSaveForm.GateNummer.$dirty && RegisterOrSaveForm.GateNummer.$invalid">
+									<span ng-show="RegisterOrSaveForm.GateNummer.$error.required">Gatenummer is required.</span>
+								</span>
+							</div>
+							<label class="control-label col-md-1" style="width:70px;">PostNr: </label>
+							<div class="col-md-2">
+								<input type="text" class="form-control" id="PostNummer" name="PostNummer" placeholder="PostNr" ng-blur="autocomplete(adr)" ng-model="adr.PostNummer" minlength="4" maxlength="4" ng-pattern="/^[0-9]*$/" required />
+								<span class="label label-danger" ng-show="RegisterOrSaveForm.PostNummer.$dirty && RegisterOrSaveForm.PostNummer.$invalid">
+									<span ng-show="RegisterOrSaveForm.PostNummer.$error.required">Postnummer is required.</span>
+									<span ng-show="RegisterOrSaveForm.FodselsNummer.$error.pattern">Only digits.</span>
+								</span>
+							</div>
+							<label class="control-label col-md-1">Poststed: </label>
+							<div class="col-md-2">
+								<input type="text" class="form-control" id="Poststed" name="PostSted" placeholder="Poststed" ng-model="adr.PostSted" required />
+								<span class="label label-danger" ng-show="RegisterOrSaveForm.PostSted.$dirty && RegisterOrSaveForm.PostSted.$invalid">
+									<span ng-show="RegisterOrSaveForm.PostSted.$error.required">Poststed is required.</span>
+								</span>
+							</div>
+							<div class="col-md-1">
+								<a ng-click="removeAddress($index)" class="btn btn-xs btn-danger">X</a>
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-md-offset-12">
+							<a ng-click="addAddress()"><i class="fa fa-plus"></i></a>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-8">
+							<button type="submit" ng-disabled="RegisterOrSaveForm.$invalid && newForm" ng-click="update(editing)" class="btn btn-primary">Save</button>
+							<button type="button" ng-click="reset()" class="btn btn-primary">Reset</button>
+						</div>
+						<br />
+						<br />
+					</div>
+				</form>
+			</div>
+		</div>
+		
+	</fieldset>
+		
+</div>
