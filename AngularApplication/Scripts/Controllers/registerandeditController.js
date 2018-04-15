@@ -17,6 +17,10 @@
 
 	$scope.reset = function () {
 		$scope.editing = {};
+		var adress = [];
+		employeeService.adr = { Id: 0, GateNavn: '', GateNummer: '', PostNummer: '', PostSted: '' };
+		adress.push(employeeService.adr);
+		$scope.editing.Adresse = adress;
 	}
 
 	$scope.update = function (editing) {
